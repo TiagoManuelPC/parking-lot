@@ -11,24 +11,24 @@ describe Park do
     expect(park.cars).to eq []
   end
 
-  it ' has parking spaces for cars' do
+  it ' has parking spaces for bikes' do
     expect(park.bikes).to eq []
   end
 
-  it ' has parking spaces for cars' do
+  it ' has parking spaces for electric cars' do
     expect(park.electric_cars).to eq []
   end
 
-  # it ' has parking spaces for cars' do
-  #   expect(park.bus).to eq []
-  # end
+  it ' has parking spaces for bus' do
+    expect(park.bus).to eq []
+  end
 
-  # it ' has parking spaces for cars' do
-  #   expect(park.lory).to eq []
-  # end
+  it ' has parking spaces for lorys' do
+    expect(park.lory).to eq []
+  end
 
-  # it ' has parking spaces for cars' do
-  #   expect(park.hand).to eq []
-  # end
+  it ' has parking spaces for cars' do
+    expect(park.handicap).to eq []
+  end
 
 end
