@@ -7,4 +7,8 @@ it 'has spaces for electric_cars' do
 expect(electric_car_lot.spaces).to eq []
 end
 
+it 'has a maximun capacity of 15' do
+  expect(electric_car_lot.capacity).to eq 15
+end
+
 end
