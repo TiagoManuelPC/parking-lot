@@ -55,7 +55,11 @@ describe Park do
     expect(park.bikes.spaces).to eq([bike])
   end
 
-  # it 'un parks the car' do
+  it 'lets the car leave the car park' do
+    park.park_vehicle(car)
+    park.leave_park(car)
+    expect(park.cars.spaces).to be_empty
+  end
     
 
 

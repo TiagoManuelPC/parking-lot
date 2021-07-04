@@ -26,4 +26,8 @@ class Park
     @handicap.spaces(vehicle) if vehicle.type == "Handicap"
     @lory.spaces(vehicle) if vehicle.type == "Lory"
   end
+
+  def leave_park(vehicle)
+    @cars.spaces.delete(vehicle)
+  end
 end
