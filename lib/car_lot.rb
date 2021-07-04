@@ -6,4 +6,6 @@ attr_reader :spaces, :capacity
     @capacity = ::MaximunCapacity
   end
 
+  
+
 end

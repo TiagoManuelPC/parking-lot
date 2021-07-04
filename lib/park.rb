@@ -19,6 +19,11 @@ class Park
   end
 
   def park_vehicle(vehicle = Vehicle.new)
-    @cars.spaces.push(vehicle)
+    @cars.spaces.push(vehicle) if vehicle.type == "Car"
+    @bikes.spaces.push(vehicle) if vehicle.type == "Bike"
+    @electric_cars.spaces.push(vehicle) if vehicle.type == "Electric Car"
+    @bus.spaces.push(vehicle) if vehicle.type == "Bus"
+    @handicap.spaces(vehicle) if vehicle.type == "Handicap"
+    @lory.spaces(vehicle) if vehicle.type == "Lory"
   end
 end

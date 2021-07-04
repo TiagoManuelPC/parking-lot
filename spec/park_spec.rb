@@ -4,7 +4,8 @@ require 'park.rb'
 describe Park do
   subject(:park) { Park.new }
   let(:car) { Vehicle.new('Car') }
-
+  let(:bus) { Vehicle.new('Bus') }
+  let(:bike) { Vehicle.new('Bike') }
 
   
   it 'is a instance of Park class' do
@@ -46,6 +47,17 @@ describe Park do
     park.park_vehicle(car)
     expect(park.cars.spaces).to eq([car])
   end
+
+  it 'parks cars in the correct space' do
+    park.park_vehicle(bus)
+    park.park_vehicle(bike)
+    expect(park.cars.spaces).to be_empty
+    expect(park.bikes.spaces).to eq([bike])
+  end
+
+  # it 'un parks the car' do
+    
+
 
 
   
