@@ -23,11 +23,16 @@ class Park
     @bikes.spaces.push(vehicle) if vehicle.type == "Bike"
     @electric_cars.spaces.push(vehicle) if vehicle.type == "Electric Car"
     @bus.spaces.push(vehicle) if vehicle.type == "Bus"
-    @handicap.spaces(vehicle) if vehicle.type == "Handicap"
-    @lory.spaces(vehicle) if vehicle.type == "Lory"
+    @handicap.spaces.push(vehicle) if vehicle.type == "Handicap"
+    @lory.spaces.push(vehicle) if vehicle.type == "Lory"
   end
 
   def leave_park(vehicle)
-    @cars.spaces.delete(vehicle)
+    @cars.spaces.delete(vehicle) if vehicle.type == "Car"
+    @bikes.spaces.delete(vehicle) if vehicle.type == "Bike"
+    @electric_cars.spaces.delete(vehicle) if vehicle.type == "Electric Car"
+    @bus.spaces.delete(vehicle) if vehicle.type == "Bus"
+    @handicap.spaces.delete(vehicle) if vehicle.type == "Handicap"
+    @lory.spaces.delete(vehicle) if vehicle.type == "Lory"
   end
 end

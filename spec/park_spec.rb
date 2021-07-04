@@ -42,11 +42,21 @@ describe Park do
   it 'responds to park_vehicle' do
     expect(park).to respond_to(:park_vehicle).with(1).argument
   end
-
-  it 'can park a car' do
+  context '#can park a ' do
+  it 'car' do
     park.park_vehicle(car)
     expect(park.cars.spaces).to eq([car])
   end
+  it 'car' do
+    park.park_vehicle(car)
+    expect(park.cars.spaces).to eq([car])
+  end
+  it 'car' do
+    park.park_vehicle(car)
+    expect(park.cars.spaces).to eq([car])
+  end
+
+end
 
   it 'parks cars in the correct space' do
     park.park_vehicle(bus)
@@ -59,6 +69,12 @@ describe Park do
     park.park_vehicle(car)
     park.leave_park(car)
     expect(park.cars.spaces).to be_empty
+  end
+
+  it 'lets the bike leave the park' do
+    park.park_vehicle(bike)
+    park.leave_park(bike)
+    expect(park.bikes.spaces).to be_empty
   end
     
 
