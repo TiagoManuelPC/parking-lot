@@ -1,11 +1,11 @@
 class Car_Lot
-  ::MaximunCapacity = 100
+  ::MaximunCarCapacity = 100
 attr_reader :spaces, :capacity
   def initialize
     @spaces = []
-    @capacity = ::MaximunCapacity
+    @capacity = ::MaximunCarCapacity
   end
 
-  
+
 
 end
