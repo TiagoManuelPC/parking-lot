@@ -7,4 +7,8 @@ it 'has spaces for handicaps' do
 expect(handicap_lot.spaces).to eq []
 end
 
+it 'has a maximun capacity of 20' do
+  expect(handicap_lot.capacity).to eq 20
+end
+
 end
