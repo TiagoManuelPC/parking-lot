@@ -15,9 +15,9 @@ describe Park do
     expect(park.bikes).to eq []
   end
 
-  # it ' has parking spaces for cars' do
-  #   expect(park.electric_cars).to eq []
-  # end
+  it ' has parking spaces for cars' do
+    expect(park.electric_cars).to eq []
+  end
 
   # it ' has parking spaces for cars' do
   #   expect(park.bus).to eq []
