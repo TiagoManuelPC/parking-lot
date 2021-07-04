@@ -6,4 +6,4 @@ class Lory_Lot
     @spaces = []
   end
   
-  end
+end

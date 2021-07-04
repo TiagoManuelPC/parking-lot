@@ -1,6 +1,6 @@
 require 'Car_Lot'
 require 'Bike_Lot'
-require 'Electric_Car'
+require 'Electric_Car_Lot'
 require 'Bus_Lot'
 require 'Handicap_Lot'
 require 'Lory_Lot'
