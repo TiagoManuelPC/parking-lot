@@ -1,34 +1,41 @@
 require 'park.rb'
 
+
 describe Park do
   subject(:park) { Park.new }
 
+
+  
   it 'is a instance of Park class' do
     expect(park).to be_an_instance_of(Park)
   end
 
-  it ' has parking spaces for cars' do
-    expect(park.cars).to eq []
+  context '# Has spaces for' do
+    it 'cars' do
+      expect(park.cars).to  be_an_instance_of(Car_Lot)
+    end
+
+    it 'bikes' do
+      expect(park.bikes).to be_an_instance_of(Bike_Lot)
+    end
+
+    it 'electric cars' do
+      expect(park.electric_cars).to be_an_instance_of(Electric_Car_Lot)
+    end
+
+    it 'bus' do
+      expect(park.bus).to be_an_instance_of(Bus_Lot)
+    end
+
+    it 'lorys' do
+      expect(park.lory).to be_an_instance_of(Lory_Lot)
+    end
+
+    it 'handicaps' do
+      expect(park.handicap).to be_an_instance_of(Handicap_Lot)
+    end
+
   end
 
-  it ' has parking spaces for bikes' do
-    expect(park.bikes).to eq []
-  end
-
-  it ' has parking spaces for electric cars' do
-    expect(park.electric_cars).to eq []
-  end
-
-  it ' has parking spaces for bus' do
-    expect(park.bus).to eq []
-  end
-
-  it ' has parking spaces for lorys' do
-    expect(park.lory).to eq []
-  end
-
-  it ' has parking spaces for cars' do
-    expect(park.handicap).to eq []
-  end
-
+  
 end
