@@ -4,6 +4,7 @@ require 'Electric_Car_Lot'
 require 'Bus_Lot'
 require 'Handicap_Lot'
 require 'Lory_Lot'
+require 'Vehicle'
 class Park
 
    attr_reader :cars, :bikes, :electric_cars, :bus, :handicap, :lory
@@ -17,4 +18,7 @@ class Park
     @lory = lory
   end
 
+  def park_vehicle(vehicle = Vehicle.new)
+    @cars.spaces.push(vehicle)
+  end
 end

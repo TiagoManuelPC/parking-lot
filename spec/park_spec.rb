@@ -3,6 +3,7 @@ require 'park.rb'
 
 describe Park do
   subject(:park) { Park.new }
+  let(:car) { Vehicle.new('Car') }
 
 
   
@@ -36,6 +37,16 @@ describe Park do
     end
 
   end
+
+  it 'responds to park_vehicle' do
+    expect(park).to respond_to(:park_vehicle).with(1).argument
+  end
+
+  it 'can park a car' do
+    park.park_vehicle(car)
+    expect(park.cars.spaces).to eq([car])
+  end
+
 
   
 end
