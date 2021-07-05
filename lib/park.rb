@@ -20,7 +20,7 @@ class Park
 
   def park_vehicle(vehicle = Vehicle.new)
     park_car(vehicle) if vehicle.type == "Car"
-    @bikes.spaces.push(vehicle) if vehicle.type == "Bike"
+    park_bike(vehicle) if vehicle.type == "Bike"
     @electric_cars.spaces.push(vehicle) if vehicle.type == "Electric Car"
     @bus.spaces.push(vehicle) if vehicle.type == "Bus"
     @handicap.spaces.push(vehicle) if vehicle.type == "Handicap"
@@ -39,32 +39,32 @@ class Park
   private
 
   def park_car(vehicle = Vehicle.new)
-    raise 'Car Park Full' if @cars.spaces.count >= 100
+    raise 'Car Park Full' if @cars.spaces.count >= MaximunCarCapacity
     @cars.spaces.push(vehicle)
   end
 
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
-
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
-
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
-
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
-
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
+  def park_bike(vehicle = Vehicle.new)
+    raise 'Bike Park Full' if @bikes.spaces.count >= MaximunBikeCapacity
+    @bikes.spaces.push(vehicle)
   end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
 end

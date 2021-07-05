@@ -123,8 +123,13 @@ describe Park do
 
   context 'gives an error when' do
     it 'car lot is full' do
-      100.times {park.park_vehicle(car)}
+      MaximunCarCapacity.times {park.park_vehicle(car)}
       expect {park.park_vehicle(car)}.to raise_error('Car Park Full')
+    end
+
+    it 'bike lot is full' do
+      MaximunBikeCapacity.times {park.park_vehicle(bike)}
+      expect {park.park_vehicle(bike)}.to raise_error('Bike Park Full')
     end
   end
 end
