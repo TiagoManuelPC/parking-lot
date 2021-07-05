@@ -22,7 +22,7 @@ class Park
     park_car(vehicle) if vehicle.type == "Car"
     park_bike(vehicle) if vehicle.type == "Bike"
     @electric_cars.spaces.push(vehicle) if vehicle.type == "Electric Car"
-    @bus.spaces.push(vehicle) if vehicle.type == "Bus"
+    park_bus(vehicle) if vehicle.type == "Bus"
     @handicap.spaces.push(vehicle) if vehicle.type == "Handicap"
     @lory.spaces.push(vehicle) if vehicle.type == "Lory"
   end
@@ -48,10 +48,10 @@ class Park
     @bikes.spaces.push(vehicle)
   end
 
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
+  def park_bus(vehicle = Vehicle.new)
+    raise 'Bus Park Full' if @bus.spaces.count >= MaximunBusCapacity
+    @bus.spaces.push(vehicle)
+  end
 
   # def park_car(vehicle = Vehicle.new)
   #   raise 'Car Park Full' if @cars.spaces.count >= 100

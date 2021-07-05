@@ -131,5 +131,10 @@ describe Park do
       MaximunBikeCapacity.times {park.park_vehicle(bike)}
       expect {park.park_vehicle(bike)}.to raise_error('Bike Park Full')
     end
+
+    it 'bus lot is full' do
+      MaximunBusCapacity.times {park.park_vehicle(bus)}
+      expect {park.park_vehicle(bus)}.to raise_error('Bus Park Full')
+    end
   end
 end
