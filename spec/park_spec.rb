@@ -142,9 +142,15 @@ describe Park do
       expect {park.park_vehicle(electric_car)}.to raise_error('Electric Car Park Full')
     end
 
-    it 'electric car lot is full' do
+    it 'handicap lot is full' do
       MaximunHandicapCapacity.times {park.park_vehicle(handicap)}
       expect {park.park_vehicle(handicap)}.to raise_error('Handicap Car Park Full')
     end
+
+    it 'lory lot is full' do
+      MaximunLoryCapacity.times {park.park_vehicle(lory)}
+      expect {park.park_vehicle(lory)}.to raise_error('Lory Park Full')
+    end
+    
   end
 end

@@ -24,7 +24,7 @@ class Park
     park_electric_car(vehicle) if vehicle.type == "Electric Car"
     park_bus(vehicle) if vehicle.type == "Bus"
     park_handicap(vehicle) if vehicle.type == "Handicap"
-    @lory.spaces.push(vehicle) if vehicle.type == "Lory"
+    park_lory(vehicle) if vehicle.type == "Lory"
   end
 
   def leave_park(vehicle)
@@ -63,8 +63,8 @@ class Park
     @handicap.spaces.push(vehicle)
   end
 
-  # def park_car(vehicle = Vehicle.new)
-  #   raise 'Car Park Full' if @cars.spaces.count >= 100
-  #   @cars.spaces.push(vehicle)
-  # end
+  def park_lory(vehicle = Vehicle.new)
+    raise 'Lory Park Full' if @lory.spaces.count >= MaximunLoryCapacity
+    @lory.spaces.push(vehicle)
+  end
 end
