@@ -5,9 +5,11 @@ require 'Bus_Lot'
 require 'Handicap_Lot'
 require 'Lory_Lot'
 require 'Vehicle'
+
+
 class Park
 
-   attr_reader :cars, :bikes, :electric_cars, :bus, :handicap, :lory
+  attr_reader :cars, :bikes, :electric_cars, :bus, :handicap, :lory
 
   def initialize(cars = Car_Lot.new, bikes = Bike_Lot.new, electric_cars = Electric_Car_Lot.new, bus = Bus_Lot.new, handicap = Handicap_Lot.new, lory = Lory_Lot.new)
     @cars = cars
@@ -19,22 +21,14 @@ class Park
   end
 
   def park_vehicle(vehicle = Vehicle.new)
-    park_car(vehicle) if vehicle.type == "Car"
-    park_bike(vehicle) if vehicle.type == "Bike"
-    park_electric_car(vehicle) if vehicle.type == "Electric Car"
-    park_bus(vehicle) if vehicle.type == "Bus"
-    park_handicap(vehicle) if vehicle.type == "Handicap"
-    park_lory(vehicle) if vehicle.type == "Lory"
+    park_by_type(vehicle)
   end
 
   def leave_park(vehicle)
-    @cars.spaces.delete(vehicle) if vehicle.type == "Car"
-    @bikes.spaces.delete(vehicle) if vehicle.type == "Bike"
-    @electric_cars.spaces.delete(vehicle) if vehicle.type == "Electric Car"
-    @bus.spaces.delete(vehicle) if vehicle.type == "Bus"
-    @handicap.spaces.delete(vehicle) if vehicle.type == "Handicap"
-    @lory.spaces.delete(vehicle) if vehicle.type == "Lory"
+    leave_park_by_type(vehicle)
   end
+
+
 
   private
 
@@ -66,5 +60,23 @@ class Park
   def park_lory(vehicle = Vehicle.new)
     raise 'Lory Park Full' if @lory.spaces.count >= MaximunLoryCapacity
     @lory.spaces.push(vehicle)
+  end
+
+  def park_by_type(vehicle = Vehicle.new)
+    park_car(vehicle) if vehicle.type == "Car"
+    park_bike(vehicle) if vehicle.type == "Bike"
+    park_electric_car(vehicle) if vehicle.type == "Electric Car"
+    park_bus(vehicle) if vehicle.type == "Bus"
+    park_handicap(vehicle) if vehicle.type == "Handicap"
+    park_lory(vehicle) if vehicle.type == "Lory"
+  end
+
+  def leave_park_by_type(vehicle)
+    @cars.spaces.delete(vehicle) if vehicle.type == "Car"
+    @bikes.spaces.delete(vehicle) if vehicle.type == "Bike"
+    @electric_cars.spaces.delete(vehicle) if vehicle.type == "Electric Car"
+    @bus.spaces.delete(vehicle) if vehicle.type == "Bus"
+    @handicap.spaces.delete(vehicle) if vehicle.type == "Handicap"
+    @lory.spaces.delete(vehicle) if vehicle.type == "Lory"
   end
 end
