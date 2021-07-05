@@ -19,7 +19,7 @@ class Park
   end
 
   def park_vehicle(vehicle = Vehicle.new)
-    @cars.spaces.push(vehicle) if vehicle.type == "Car"
+    park_car(vehicle) if vehicle.type == "Car"
     @bikes.spaces.push(vehicle) if vehicle.type == "Bike"
     @electric_cars.spaces.push(vehicle) if vehicle.type == "Electric Car"
     @bus.spaces.push(vehicle) if vehicle.type == "Bus"
@@ -34,5 +34,37 @@ class Park
     @bus.spaces.delete(vehicle) if vehicle.type == "Bus"
     @handicap.spaces.delete(vehicle) if vehicle.type == "Handicap"
     @lory.spaces.delete(vehicle) if vehicle.type == "Lory"
+  end
+
+  private
+
+  def park_car(vehicle = Vehicle.new)
+    raise 'Car Park Full' if @cars.spaces.count >= 100
+    @cars.spaces.push(vehicle)
+  end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
+  # end
+
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= 100
+  #   @cars.spaces.push(vehicle)
   end
 end

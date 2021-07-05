@@ -120,4 +120,11 @@ describe Park do
       expect(park.lory.spaces).to be_empty
     end
   end  
+
+  context 'gives an error when' do
+    it 'car lot is full' do
+      100.times {park.park_vehicle(car)}
+      expect {park.park_vehicle(car)}.to raise_error('Car Park Full')
+    end
+  end
 end
