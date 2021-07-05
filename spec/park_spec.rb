@@ -6,6 +6,9 @@ describe Park do
   let(:car) { Vehicle.new('Car') }
   let(:bus) { Vehicle.new('Bus') }
   let(:bike) { Vehicle.new('Bike') }
+  let(:electric_car) { Vehicle.new('Electric Car') }
+  let(:lory) { Vehicle.new('Lory') }
+  let(:handicap) { Vehicle.new('Handicap') }
 
   
   it 'is a instance of Park class' do
@@ -42,21 +45,37 @@ describe Park do
   it 'responds to park_vehicle' do
     expect(park).to respond_to(:park_vehicle).with(1).argument
   end
-  context '#can park a ' do
-  it 'car' do
-    park.park_vehicle(car)
-    expect(park.cars.spaces).to eq([car])
-  end
-  it 'car' do
-    park.park_vehicle(car)
-    expect(park.cars.spaces).to eq([car])
-  end
-  it 'car' do
-    park.park_vehicle(car)
-    expect(park.cars.spaces).to eq([car])
-  end
 
-end
+  context '#can park a ' do
+    it 'car' do
+      park.park_vehicle(car)
+      expect(park.cars.spaces).to eq([car])
+    end
+    it 'bike' do
+      park.park_vehicle(bike)
+      expect(park.bikes.spaces).to eq([bike])
+    end
+    it 'bus' do
+      park.park_vehicle(bus)
+      expect(park.bus.spaces).to eq([bus])
+    end
+
+    it 'electric car' do
+      park.park_vehicle(electric_car)
+      expect(park.electric_cars.spaces).to eq([electric_car])
+    end
+
+    it 'lory' do
+      park.park_vehicle(lory)
+      expect(park.lory.spaces).to eq([lory])
+    end
+
+    it 'handicap' do
+      park.park_vehicle(handicap)
+      expect(park.handicap.spaces).to eq([handicap])
+    end
+
+  end
 
   it 'parks cars in the correct space' do
     park.park_vehicle(bus)
@@ -64,21 +83,41 @@ end
     expect(park.cars.spaces).to be_empty
     expect(park.bikes.spaces).to eq([bike])
   end
+  context '#lets the' do
+    it 'car leave the car park' do
+      park.park_vehicle(car)
+      park.leave_park(car)
+      expect(park.cars.spaces).to be_empty
+    end
 
-  it 'lets the car leave the car park' do
-    park.park_vehicle(car)
-    park.leave_park(car)
-    expect(park.cars.spaces).to be_empty
-  end
+    it 'bike leave the park' do
+      park.park_vehicle(bike)
+      park.leave_park(bike)
+      expect(park.bikes.spaces).to be_empty
+    end
 
-  it 'lets the bike leave the park' do
-    park.park_vehicle(bike)
-    park.leave_park(bike)
-    expect(park.bikes.spaces).to be_empty
-  end
-    
+    it 'bus leave the park' do
+      park.park_vehicle(bus)
+      park.leave_park(bus)
+      expect(park.bus.spaces).to be_empty
+    end
 
+    it 'electric car leave the park' do
+      park.park_vehicle(electric_car)
+      park.leave_park(electric_car)
+      expect(park.electric_cars.spaces).to be_empty
+    end
 
+    it 'handicap vehicle leave the park' do
+      park.park_vehicle(handicap)
+      park.leave_park(handicap)
+      expect(park.handicap.spaces).to be_empty
+    end
 
-  
+    it 'lory leave the park' do
+      park.park_vehicle(lory)
+      park.leave_park(lory)
+      expect(park.lory.spaces).to be_empty
+    end
+  end  
 end
