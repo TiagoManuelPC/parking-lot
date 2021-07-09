@@ -1,13 +1,13 @@
-require 'Car_Lot'
-require 'Bike_Lot'
-require 'Electric_Car_Lot'
-require 'Bus_Lot'
-require 'Handicap_Lot'
-require 'Lory_Lot'
-require 'Vehicle'
+require_relative 'car_Lot'
+require_relative 'bike_Lot'
+require_relative 'electric_Car_Lot'
+require_relative 'bus_Lot'
+require_relative 'handicap_Lot'
+require_relative 'lory_Lot'
+require_relative 'vehicle'
 
 
-class Park
+class Park 
 
   attr_reader :cars, :bikes, :electric_cars, :bus, :handicap, :lory
 
@@ -20,7 +20,7 @@ class Park
     @lory = lory
   end
 
-  def park_vehicle(vehicle = Vehicle.new)
+  def park_vehicle(vehicle = Vehicle.new(type))
     park_by_type(vehicle)
   end
 
@@ -32,15 +32,15 @@ class Park
 
   private
 
-  def park_car(vehicle = Vehicle.new)
-    raise 'Car Park Full' if @cars.spaces.count >= MaximunCarCapacity
-    @cars.spaces.push(vehicle)
-  end
+  # def park_car(vehicle = Vehicle.new)
+  #   raise 'Car Park Full' if @cars.spaces.count >= MaximunCarCapacity
+  #   @cars.spaces.push(vehicle)
+  # end
 
-  def park_bike(vehicle = Vehicle.new)
-    raise 'Bike Park Full' if @bikes.spaces.count >= MaximunBikeCapacity
-    @bikes.spaces.push(vehicle)
-  end
+  # def park_bike(vehicle = Vehicle.new)
+  #   raise 'Bike Park Full' if @bikes.spaces.count >= MaximunBikeCapacity
+  #   @bikes.spaces.push(vehicle)
+  # end
 
   def park_bus(vehicle = Vehicle.new)
     raise 'Bus Park Full' if @bus.spaces.count >= MaximunBusCapacity
@@ -62,14 +62,13 @@ class Park
     @lory.spaces.push(vehicle)
   end
 
-  def park_by_type(vehicle = Vehicle.new)
-    park_car(vehicle) if vehicle.type == "Car"
-    park_bike(vehicle) if vehicle.type == "Bike"
-    park_electric_car(vehicle) if vehicle.type == "Electric Car"
-    park_bus(vehicle) if vehicle.type == "Bus"
-    park_handicap(vehicle) if vehicle.type == "Handicap"
-    park_lory(vehicle) if vehicle.type == "Lory"
-  end
+  # def park_by_type(vehicle)
+  #   park_bike(vehicle) if vehicle.type == "Bike"
+  #   park_electric_car(vehicle) if vehicle.type == "Electric Car"
+  #   park_bus(vehicle) if vehicle.type == "Bus"
+  #   park_handicap(vehicle) if vehicle.type == "Handicap"
+  #   park_lory(vehicle) if vehicle.type == "Lory"
+  # end
 
   def leave_park_by_type(vehicle)
     @cars.spaces.delete(vehicle) if vehicle.type == "Car"

@@ -1,4 +1,5 @@
 require 'bike_lot'
+require 'park'
 
 describe Bike_Lot do
 subject(:bike_lot) {Bike_Lot.new}

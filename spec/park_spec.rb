@@ -1,5 +1,5 @@
 require 'park.rb'
-
+require 'car_lot'
 
 describe Park do
   subject(:park) { Park.new }
