@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Lot</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231e6fd9'/><text x='16' y='24' font-family='Arial' font-weight='700' font-size='22' fill='white' text-anchor='middle'>P</text></svg>" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand"><span class="sign">P</span><h1>Parking Lot</h1></div>
+      <div class="clock">
+        <div>
+          <div class="clock-time" id="clock-time"></div>
+          <div class="clock-note" id="clock-note"></div>
+        </div>
+        <button class="btn ghost" data-action="advance" data-minutes="15">+15 min</button>
+        <button class="btn ghost" data-action="advance" data-minutes="60">+1 hour</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+
+      <section>
+        <h2>Spaces</h2>
+        <div class="lots" id="lots"></div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Parked now <span class="count" id="parked-count"></span></h2>
+          <form class="lookup" id="lookup">
+            <label for="lookup-number">Ticket</label>
+            <input id="lookup-number" type="number" min="1" inputmode="numeric" placeholder="No." required />
+            <button class="btn" type="submit">Check price</button>
+          </form>
+        </div>
+        <div id="pay-panel"></div>
+        <div id="parked"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
